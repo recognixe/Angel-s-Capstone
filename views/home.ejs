@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Animal Cards</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+    <h1>Adoptable Animals</h1>
+  </header>
+  <main class="card-container">
+
+<% for (let i = 0; i < pets.length; i++) { %>
+ 
+
+
+    <div class="card">
+      <img src="https://via.placeholder.com/300x200" alt="Animal Photo">
+      <div class="card-info">
+        <h2>Name: <%= pets[i].name %></h2>
+        <p><strong>Type:</strong> <%= pets[i].animalType %></p>
+        <p><strong>Breed:</strong> <%= pets[i].Breed %></p>
+        <p><strong>Appearance:</strong> <%= pets[i].appearance %></p>
+        <p><strong>Vaccinated:</strong> <%= pets[i].vaccinated%></p>
+        <p><strong>Location:</strong> <%= pets[i].location %></p>
+        <p><strong>Age:</strong> <%= pets[i].age%></p>
+      </div>
+    </div>
+   <%}%>
+    
+  </main>
+</body>
+</html>
