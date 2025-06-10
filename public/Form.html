@@ -1,16 +1,89 @@
-const createForm = document.querySelector(“form”)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dog Profile Submission Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      padding: 20px;
+    }
 
-createForm.addEventListener(“submit”, async (e)=>{
-	e.preventDefault()
-	const bookData = new FormData(createForm)
-	const reqBody = Object.fromEntries(bookData)
+    form {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
 
-	const response = await fetch(“/add”, {
-		method: “POST”,
-		headers: {
-			“Content-Type”: “application/json”)
-		},
-		body: JSON.stringify(reqBody)
-	})
-    window.location.href = “/”
-})
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #ffcc00;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #e6b800;
+    }
+  </style>
+</head>
+<body>
+
+  <form action="/submit-dog" method="POST" enctype="multipart/form-data">
+    <h2>Add a Dog Profile</h2>
+
+    <label for="animalType">Animal Type</label>
+    <select id="animalType" name="animalType" required>
+      <option value="dog">Dog</option>
+      <option value="cat">Cat</option>
+      <option value="other">Other</option>
+    </select>
+
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="breed">Breed</label>
+    <input type="text" id="breed" name="Breed" required>
+
+    <label for="appearance">Appearance</label>
+    <textarea id="appearance" name="appearance" rows="3" placeholder="Color, size, fur type, etc."></textarea>
+
+    <label for="vaccinated">Vaccinated</label>
+    <select id="vaccinated" name="vaccinated" required>
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+      <option value="unknown">Unknown</option>
+    </select>
+
+    <label for="location">Location</label>
+    <input type="text" id="location" name="location" required>
+
+    <label for="photo">Photo</label>
+    <input type="file" id="photo" name="photo" accept="image/*" required>
+
+    <button type="submit">Submit Profile</button>
+  </form>
+
+</body>
+</html>

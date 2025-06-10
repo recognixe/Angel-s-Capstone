@@ -16,7 +16,7 @@
 
 
     <div class="card">
-      <img src="https://via.placeholder.com/300x200" alt="Animal Photo">
+      <img src= "<%= pets[i].Photo %>" alt="Animal Photo">
       <div class="card-info">
         <h2>Name: <%= pets[i].name %></h2>
         <p><strong>Type:</strong> <%= pets[i].animalType %></p>
@@ -25,10 +25,26 @@
         <p><strong>Vaccinated:</strong> <%= pets[i].vaccinated%></p>
         <p><strong>Location:</strong> <%= pets[i].location %></p>
         <p><strong>Age:</strong> <%= pets[i].age%></p>
-      </div>
+       </div>
+
+       <button onclick="deletePet('<%= pets[i]._id %>')">Delete</button>
+      
+       <div class="card">
+   <form onsubmit="editPet(event, '<%= pets[i]._id %>')">
+     <input name="name" value="<%= pets[i].name %>" />
+     <input name="age" type="number" value="<%= pets[i].age %>" />
+     <input name="Photo" type="string" value="<%= pets[i].Photo %>" />
+     <input name="Breed" type="string" value="<%= pets[i].Breed  %>" />
+     <input name="location" type="string" value="<%= pets[i].location %>" />
+     <input name="vaccinated" type="boolean" value="<%= pets[i].vaccinated %>" />
+     <button type="submit">Update</button>
+   </form>
+ </div>
+ 
     </div>
    <%}%>
     
   </main>
+  <script src="Form.js"></script>
 </body>
 </html>
