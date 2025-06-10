@@ -39,13 +39,13 @@ app.get("/", async (req, res) => {
 
 app.patch("/Pets/:_id", async (req, res) => {
 const response = await Animal.findOneAndUpdate(
- { name: req.params._id },
- { description: req.body.description })
+ { _id: req.params._id },
+ { location: req.body.location,  animalType: req.body.animalType, appearance: req.body.appearance, vaccinated: req.body.vaccinated ,Breed: req.body.Breed ,age: req.body.age, Photo: req.body.Photo,name: req.body.name })
 res.json(response);
 });
 
 app.delete("/deletepets/:_id", async (req, res) => {
-const response = await Animal.findOneAndDelete({ name: req.params._id })
+const response = await Animal.findOneAndDelete({ _id: req.params._id })
 res.json(response);
 });
 
